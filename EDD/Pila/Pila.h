@@ -2,7 +2,7 @@
 
 class Pila {
     private:
-        Nodo* pila = new Nodo;
+        Nodo* pila;
     public:
         Pila();
         void push(int id);
