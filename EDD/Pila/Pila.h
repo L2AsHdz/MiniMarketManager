@@ -1,4 +1,4 @@
-#include "Nodo.h"
+#include "../Nodo.h"
 
 class Pila {
     private:
