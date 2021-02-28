@@ -1,18 +1,23 @@
 #include <iostream>
 #include "EDD/Pila/Pila.h"
 #include "EDD/Cola/Cola.h"
+#include "EDD/LinkedList/LinkedList.h"
 
 using namespace std;
 
 void mostrarMenu();
 void pilaMenu();
 void colaMenu();
+void linkedListMenu();
+
+void eleccionMenu(int);
 void eleccionPila(int);
 void eleccionCola(int);
-void eleccionMenu(int);
+void eleccionLinkedList(int);
 
 Pila pila = Pila();
 Cola cola = Cola();
+LinkedList list = LinkedList();
 
 int main() {
     int opcion;
@@ -30,7 +35,7 @@ int main() {
 void mostrarMenu() {
     cout<<"\n1. Cola"<<endl;
     cout<<"2. Pila"<<endl;
-    cout<<"3. Pila"<<endl;
+    cout<<"3. LinkedList"<<endl;
     cout<<"4. Pila"<<endl;
     cout<<"5. Salir"<<endl;
 }
@@ -45,6 +50,13 @@ void pilaMenu() {
 void colaMenu() {
     cout<<"\n\n1. Insertar"<<endl;
     cout<<"2. Eliminar"<<endl;
+    cout<<"3. MostrarPila"<<endl;
+    cout<<"4. Regresar"<<endl;
+}
+
+void linkedListMenu() {
+    cout<<"\n\n1. Insertar"<<endl;
+    cout<<"2. Buscar"<<endl;
     cout<<"3. MostrarPila"<<endl;
     cout<<"4. Regresar"<<endl;
 }
@@ -66,6 +78,13 @@ void eleccionMenu(int opcion) {
                 cin>>op;
                 eleccionPila(op);
             } while (op != 4);
+            break;
+        case 3:
+            do {
+                linkedListMenu();
+                cin>>op;
+                eleccionLinkedList(op);
+            } while(op != 4);
             break;
     }
 }
@@ -102,6 +121,26 @@ void eleccionCola(int opcion) {
             break;
         case 3:
             cola.mostrarCola();
+            break;
+    }
+}
+
+void eleccionLinkedList(int opcion) {
+    int dato;
+
+    switch (opcion) {
+        case 1:
+            cout<<"Ingrese el dato a agregar ";
+            cin>>dato;
+            list.agregar(dato);
+            break;
+        case 2:
+            cout<<"Ingrese el numero a buscar ";
+            cin>>dato;
+            list.buscar(dato);
+            break;
+        case 3:
+            list.mostrarLista();
             break;
     }
 }
