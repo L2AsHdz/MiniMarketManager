@@ -2,6 +2,7 @@
 #include "EDD/Pila/Pila.h"
 #include "EDD/Cola/Cola.h"
 #include "EDD/LinkedList/LinkedList.h"
+#include "EDD/CircularList/CircularList.h"
 
 using namespace std;
 
@@ -9,15 +10,18 @@ void mostrarMenu();
 void pilaMenu();
 void colaMenu();
 void linkedListMenu();
+void circularListMenu();
 
 void eleccionMenu(int);
 void eleccionPila(int);
 void eleccionCola(int);
 void eleccionLinkedList(int);
+void eleccionCircularList(int);
 
 Pila pila = Pila();
 Cola cola = Cola();
 LinkedList list = LinkedList();
+CircularList circularList = CircularList();
 
 int main() {
     int opcion;
@@ -36,7 +40,7 @@ void mostrarMenu() {
     cout<<"\n1. Cola"<<endl;
     cout<<"2. Pila"<<endl;
     cout<<"3. LinkedList"<<endl;
-    cout<<"4. Pila"<<endl;
+    cout<<"4. CircularList"<<endl;
     cout<<"5. Salir"<<endl;
 }
 
@@ -55,6 +59,13 @@ void colaMenu() {
 }
 
 void linkedListMenu() {
+    cout<<"\n\n1. Insertar"<<endl;
+    cout<<"2. Buscar"<<endl;
+    cout<<"3. MostrarPila"<<endl;
+    cout<<"4. Regresar"<<endl;
+}
+
+void circularListMenu() {
     cout<<"\n\n1. Insertar"<<endl;
     cout<<"2. Buscar"<<endl;
     cout<<"3. MostrarPila"<<endl;
@@ -84,6 +95,13 @@ void eleccionMenu(int opcion) {
                 linkedListMenu();
                 cin>>op;
                 eleccionLinkedList(op);
+            } while(op != 4);
+            break;
+        case 4:
+            do {
+                circularListMenu();
+                cin>>op;
+                eleccionCircularList(op);
             } while(op != 4);
             break;
     }
@@ -141,6 +159,26 @@ void eleccionLinkedList(int opcion) {
             break;
         case 3:
             list.mostrarLista();
+            break;
+    }
+}
+
+void eleccionCircularList(int opcion) {
+    int dato;
+
+    switch (opcion) {
+        case 1:
+            cout<<"Ingrese el dato a agregar ";
+            cin>>dato;
+            circularList.agregar(dato);
+            break;
+        case 2:
+            cout<<"Ingrese el numero a buscar ";
+            cin>>dato;
+            circularList.eliminar(dato);
+            break;
+        case 3:
+            circularList.mostrarLista();
             break;
     }
 }
