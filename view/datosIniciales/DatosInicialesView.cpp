@@ -1,13 +1,16 @@
 #include <iostream>
+#include "DatosInicialesView.h"
 
 using namespace std;
 
-void bienvenida() {
+DatosInicialesView::DatosInicialesView(){}
+
+void DatosInicialesView::bienvenida() {
     cout<<"\n--------------------------------MiniMarket--------------------------------"<<endl;
     cout<<"A continuacion se le solicitaran los datos necesarios para la simulacion"<<endl;
 }
 
-int solicitarClientesEnEspera() {
+int DatosInicialesView::solicitarClientesEnEspera() {
     int cantClientes;
     
     cout<<endl<<"Ingrese la cantidad de clientes en la cola de espera: ";
@@ -16,7 +19,7 @@ int solicitarClientesEnEspera() {
     return cantClientes;
 }
 
-int solicitarNumeroCarretas(int p) {
+int DatosInicialesView::solicitarNumeroCarretas(int p) {
     int cantCarretas;
 
     cout<<endl<<"Ingrese la cantidad de carretas en la pila "<<p<<": ";
@@ -25,7 +28,7 @@ int solicitarNumeroCarretas(int p) {
     return cantCarretas;
 }
 
-int solicitarClientesComprando() {
+int DatosInicialesView::solicitarClientesComprando() {
     int cantClientes;
 
     cout<<endl<<"Ingrese la cantidad de clientes comprando: ";
@@ -34,7 +37,7 @@ int solicitarClientesComprando() {
     return cantClientes;
 }
 
-int solicitarClientesColaPago() {
+int DatosInicialesView::solicitarClientesColaPago() {
     int cantClientes;
 
     cout<<endl<<"Ingrese la cantidad de clientes en la cola de pago ";
@@ -43,7 +46,7 @@ int solicitarClientesColaPago() {
     return cantClientes; 
 }
 
-int solicitarCantidadCajas() {
+int DatosInicialesView::solicitarCantidadCajas() {
     int cantCajas;
 
     cout<<endl<<"Ingrese la cantidad de cajas ";
