@@ -6,6 +6,17 @@
 class Controller {
     private:
         DatosInicialesController inicialData;
+        //Pilas para las carretas
+        Pila pilaCarretas1;
+        Pila pilaCarretas2;
+        //Cola de espera de clientes
+        Cola clientesEnEspera;
+        //Lista circular para clientes comprando
+        CircularList clientesComprando;
+        //Cola de espera para pagar
+        Cola clientesEsperaPago;
+        //LinkedList para las cajas
+        LinkedList cajas;
     public:
         Controller();
         void iniciar();

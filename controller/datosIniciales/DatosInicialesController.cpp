@@ -18,15 +18,39 @@ void DatosInicialesController::solicitarDatos() {
 }
 
 void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* carretas2, Cola* clientesEspera, CircularList* clientesCompra, Cola* clientesPago, LinkedList* cajas) {
-    for (int i = 0; i < this->cantCarretas1; i++) {
-        carretas1->push(i);
+    int idCarreta = 1;
+    int idCliente = 1;
+    int clienteActual;
+    int carretaActual;
+
+    for(idCliente; idCliente <= this->cantClientesColaPago; idCliente++) {
+        clientesPago->insertar(Cliente(idCliente, idCarreta));
+        idCarreta++;
+    }
+    clienteActual = idCliente;
+    carretaActual = idCarreta;
+
+    for (idCliente; idCliente < (clienteActual + this->cantClientesComprando); idCliente++) {
+        clientesCompra->agregar(Cliente(idCliente, idCarreta));
+        idCarreta++;
+    }
+    clienteActual = idCliente;
+    carretaActual = idCarreta;
+    
+    for (idCarreta; idCarreta < (carretaActual + this->cantCarretas1); idCarreta++) {
+        carretas1->push(idCarreta);
+    }
+    carretaActual = idCarreta;
+
+    for (idCarreta; idCarreta < (carretaActual + this->cantCarretas2); idCarreta++) {
+        carretas2->push(idCarreta);
     }
 
-    for (int i = 0; i < this->cantCarretas2; i++) {
-        carretas2->push(i);
+    for (idCliente; idCliente < (clienteActual + this->cantClientesEspera); idCliente++) {
+        clientesEspera->insertar(Cliente(idCliente));
     }
 
-    for (int i = 0; i < this->cantClientesEspera; i++) {
-        //clientesEspera->insertar
+    for (int i = 1; i <= cantCajas; i++) {
+        cajas->agregar(Caja(i));
     }
 }

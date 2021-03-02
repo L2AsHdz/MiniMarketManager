@@ -3,6 +3,8 @@
 #include "edd/cola/Cola.h"
 #include "edd/linkedList/LinkedList.h"
 #include "edd/circularList/CircularList.h"
+#include "model/caja/Caja.h"
+#include "model/cliente/Cliente.h"
 
 using namespace std;
 
@@ -112,7 +114,7 @@ void eleccionPila(int opcion) {
 
     switch (opcion) {
         case 1:
-            cout<<"Ingrese el dato a agregar ";
+            cout<<"Ingrese el numero de carreta a agregar ";
             cin>>dato;
             pila.push(dato);
             break;
@@ -130,9 +132,9 @@ void eleccionCola(int opcion) {
 
     switch (opcion) {
         case 1:
-            cout<<"Ingrese el dato a agregar ";
+            cout<<"Ingrese el id del cliente a agregar ";
             cin>>dato;
-            cola.insertar(dato);
+            cola.insertar(Cliente(dato));
             break;
         case 2:
             cola.eliminar();
@@ -148,12 +150,12 @@ void eleccionLinkedList(int opcion) {
 
     switch (opcion) {
         case 1:
-            cout<<"Ingrese el dato a agregar ";
+            cout<<"Ingrese el id de la caja a agregar ";
             cin>>dato;
-            list.agregar(dato);
+            list.agregar(Caja(dato));
             break;
         case 2:
-            cout<<"Ingrese el numero a buscar ";
+            cout<<"Ingrese el id de la caja a buscar ";
             cin>>dato;
             list.buscar(dato);
             break;
@@ -168,12 +170,12 @@ void eleccionCircularList(int opcion) {
 
     switch (opcion) {
         case 1:
-            cout<<"Ingrese el dato a agregar ";
+            cout<<"Ingrese el id del cliente a agregar ";
             cin>>dato;
-            circularList.agregar(dato);
+            circularList.agregar(Cliente(dato));
             break;
         case 2:
-            cout<<"Ingrese el numero a eliminar ";
+            cout<<"Ingrese el id del cliente a eliminar ";
             cin>>dato;
             circularList.eliminar(dato);
             break;

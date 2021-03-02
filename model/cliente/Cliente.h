@@ -6,6 +6,7 @@ class Cliente {
         int idCarreta;
     public:
         Cliente();
+        Cliente(int);
         Cliente(int, int);
         void setId(int);
         int getId();

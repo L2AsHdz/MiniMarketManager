@@ -5,6 +5,10 @@ using namespace std;
 
 Cliente::Cliente(){}
 
+Cliente::Cliente(int id) {
+    this->id = id;
+}
+
 Cliente::Cliente(int id, int idCarreta) {
     this->id = id;
     this->idCarreta = idCarreta;

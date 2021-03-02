@@ -1,30 +1,23 @@
 #include <iostream>
 #include "Controller.h"
 
-//Controlador para datos iniciales
-
-
-/*//Pilas para las carretas
-Pila pilaCarretas1 = Pila();
-Pila pilaCarretas2 = Pila();
-
-//Cola de espera de clientes
-Cola clientesEnEspera = Cola();
-
-//Lista circular para clientes comprando
-CircularList clientesComprando = CircularList();
-
-//Cola de espera para pagar
-Cola clientesEsperaPago = Cola();
-
-//LinkedList para las cajas
-LinkedList cajas = LinkedList();*/
+using namespace std;
 
 Controller::Controller(){
     this->inicialData = DatosInicialesController();
+
+    this->pilaCarretas1 = Pila();
+    this->pilaCarretas2 = Pila();
+    this->clientesEnEspera = Cola();
+    this->clientesComprando = CircularList();
+    this->clientesEsperaPago = Cola();
+    this->cajas = LinkedList();
 }
 
 void Controller::iniciar() {
     this->inicialData.solicitarDatos();
-    //inicialDatainicializarEstructuras();
+
+    cout<<endl<<"Inicializando estructuras de datos"<<endl;
+    this->inicialData.inicializarEstructuras(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera,
+    &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
 }
