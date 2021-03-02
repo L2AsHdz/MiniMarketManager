@@ -3,26 +3,26 @@
 
 using namespace std;
 
-typedef Nodo* Node;
+typedef Nodo<Cliente>* Node;
 
 Cola::Cola(){}
 
-void Cola::insertar(int dato) {
-    Node nuevo = new Nodo;
-    nuevo->dato = dato;
+void Cola::insertar(Cliente cliente) {
+    Node nuevo = new Nodo<Cliente>;
+    nuevo->dato = cliente;
 
     if(this->primero == NULL) {
         this->primero = nuevo;
-        cout<<"Elemento "<<dato<<" agregado al inicio" <<endl;
+        cout<<"Cliente "<<cliente.getId()<<" agregado al inicio" <<endl;
     } else {
         this->ultimo->next = nuevo;
-        cout<<"Elemento "<<dato<<" agregado a la cola"<<endl;
+        cout<<"Cliente "<<cliente.getId()<<" agregado a la cola"<<endl;
     }
     this->ultimo = nuevo;
 }
 
-int Cola::eliminar() {
-    int dato = -1;
+Cliente Cola::eliminar() {
+    Cliente dato;
 
     if (this->primero == NULL) {
         cout<<"Eliminar: Cola vacia"<<endl;
@@ -32,7 +32,7 @@ int Cola::eliminar() {
         dato = temp->dato;
 
         delete temp;
-        cout<<"Elemento "<<dato<<" sacado de la cola"<<endl;
+        cout<<"Cliente "<<dato.getId()<<" sacado de la cola"<<endl;
         if (this->primero == NULL) this->ultimo = NULL; 
     }
     return dato;
@@ -45,7 +45,7 @@ void Cola::mostrarCola() {
         cout<<"Mostrar cola: Cola vacia"<<endl;
     } else {
         while (actual != NULL) {
-            cout<<actual->dato<<" ->";
+            cout<<actual->dato.getId()<<" ->";
             actual = actual->next;
         }
     }

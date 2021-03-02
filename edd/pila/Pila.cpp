@@ -3,7 +3,7 @@
 
 using namespace std;
 
-typedef Nodo* Node;
+typedef Nodo<int>* Node;
 
 Pila::Pila(){
     this->pila = NULL;
@@ -11,12 +11,12 @@ Pila::Pila(){
 
 void Pila::push(int id){
     
-    Node nuevo = new Nodo;
+    Node nuevo = new Nodo<int>;
     nuevo->dato = id;
 
     nuevo->next = this->pila;
     this->pila = nuevo;
-    cout<<"Elemento "<<id<<" agregado a la pila"<<endl;
+    cout<<"Carreta "<<id<<" agregada a la pila"<<endl;
 }
 
 int Pila::pop() {
@@ -29,7 +29,7 @@ int Pila::pop() {
         this->pila = auxPop->next;
         dato = auxPop->dato;
         delete auxPop;
-        cout<<"Elemento "<<dato<<" sacado de la pila"<<endl;
+        cout<<"Carreta "<<dato<<" sacada de la pila"<<endl;
     }
     return dato;
 }

@@ -18,5 +18,15 @@ void DatosInicialesController::solicitarDatos() {
 }
 
 void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* carretas2, Cola* clientesEspera, CircularList* clientesCompra, Cola* clientesPago, LinkedList* cajas) {
-    
+    for (int i = 0; i < this->cantCarretas1; i++) {
+        carretas1->push(i);
+    }
+
+    for (int i = 0; i < this->cantCarretas2; i++) {
+        carretas2->push(i);
+    }
+
+    for (int i = 0; i < this->cantClientesEspera; i++) {
+        //clientesEspera->insertar
+    }
 }

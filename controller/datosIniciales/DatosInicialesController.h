@@ -1,5 +1,5 @@
-#ifndef DATOS_INICIALES-CONTROLLER-H
-#define DATOS_INICIALES-CONTROLLER-H
+#ifndef DATOS_INICIALES_CONTROLLER_H
+#define DATOS_INICIALES_CONTROLLER_H
 
 #include <iostream>
 #include "../../view/datosIniciales/DatosInicialesView.h"

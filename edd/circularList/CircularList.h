@@ -2,15 +2,16 @@
 #define CIRCULAR_LIST_H
 
 #include "../Nodo.h"
+#include "../../model/cliente/Cliente.h"
 
 class CircularList{
     private:
-        Nodo* primero;
-        Nodo* ultimo;
+        Nodo<Cliente>* primero;
+        Nodo<Cliente>* ultimo;
     public:
         CircularList();
-        void agregar(int dato);
-        int eliminar(int num);
+        void agregar(Cliente);
+        Cliente eliminar(int);
         void mostrarLista();
 };
 

@@ -3,17 +3,17 @@
 
 using namespace std;
 
-typedef Nodo* Node;
+typedef Nodo<Caja>* Node;
 
 LinkedList::LinkedList(){}
 
-void LinkedList::agregar(int dato) {
-    Node nuevo = new Nodo;
-    nuevo->dato = dato;
+void LinkedList::agregar(Caja caja) {
+    Node nuevo = new Nodo<Caja>;
+    nuevo->dato = caja;
 
     if(this->inicio == NULL) {
         this->inicio = nuevo;
-        cout<<"Elemento "<<dato<<" agregado al inicio"<<endl;
+        cout<<"Caja "<<caja.getId()<<" agregada al inicio"<<endl;
     } else {
         Node temp = this->inicio;
 
@@ -23,23 +23,25 @@ void LinkedList::agregar(int dato) {
 
         nuevo->prev = temp;
         temp->next = nuevo;
-        cout<<"Elemento "<<dato<<" agregado a la lista"<<endl;
+        cout<<"Caja "<<caja.getId()<<" agregada a la lista"<<endl;
     }
 }
 
-int LinkedList::buscar(int num) {
+Caja LinkedList::buscar(int num) {
+    Caja caja;
     Node actual = this->inicio;
 
     while (actual != NULL) {
-        if (actual->dato == num) {
-            cout<<"Numero encontrado"<<endl;
-            return num;
+        if (actual->dato.getId() == num) {
+            cout<<"Caja encontrada"<<endl;
+            caja = actual->dato;
+            return caja;
         }
         actual = actual->next;
     }
 
-    cout<<"No se encontro el numero"<<endl;
-    return -1;
+    cout<<"No se encontro la caja"<<endl;
+    return caja;
 }
 
 void LinkedList::mostrarLista() {
@@ -50,11 +52,11 @@ void LinkedList::mostrarLista() {
     } else {
         while (actual != NULL) {
         if (actual->prev == NULL) {
-            cout<<endl<<actual->dato<<"->"<<actual->next->dato<<endl;
+            cout<<endl<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
         } else if (actual->next == NULL) {
-            cout<<endl<<actual->prev->dato<<"<-"<<actual->dato<<endl;
+            cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<endl;
         } else {
-            cout<<endl<<actual->prev->dato<<"<-"<<actual->dato<<"->"<<actual->next->dato<<endl;
+            cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
         }
         actual = actual->next;
     }

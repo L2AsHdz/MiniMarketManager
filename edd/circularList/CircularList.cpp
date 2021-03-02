@@ -3,32 +3,32 @@
 
 using namespace std;
 
-typedef Nodo* Node;
+typedef Nodo<Cliente>* Node;
 
 CircularList::CircularList(){}
 
-void CircularList::agregar(int dato) {
-    Node nuevo = new Nodo;
-    nuevo->dato = dato;
+void CircularList::agregar(Cliente cliente) {
+    Node nuevo = new Nodo<Cliente>;
+    nuevo->dato = cliente;
 
     if (this->primero == NULL) {
         nuevo->next = nuevo;
         nuevo->prev = nuevo;
         this->primero = nuevo;
-        cout<<"Elemento "<<dato<<" agregado al inicio"<<endl;
+        cout<<"Cliente "<<cliente.getId()<<" agregado al inicio"<<endl;
     } else {
         this->ultimo->next = nuevo;
         nuevo->prev = this->ultimo;
 
         this->primero->prev = nuevo;
         nuevo->next = this->primero;
-        cout<<"Elemento "<<dato<<" agregado a la CircleList"<<endl;
+        cout<<"Cliente "<<cliente.getId()<<" agregado a la CircleList"<<endl;
     }
     this->ultimo = nuevo;
 }
 
-int CircularList::eliminar(int num) {
-    int dato = -1;
+Cliente CircularList::eliminar(int num) {
+    Cliente dato;
 
     if (this->primero == NULL) {
         cout<<"Lista vacia, nada por eliminar"<<endl;
@@ -37,16 +37,12 @@ int CircularList::eliminar(int num) {
         Node actual = this->primero;
 
         do {
-            if (actual->dato == num) {
+            if (actual->dato.getId() == num) {
 
                 if (actual == this->primero) {
-                    //if (actual == temp->next) {
-                    //    cout<<"Es el ultimo en la lista"<<endl;
-                    //} else {
-                        this->primero = this->primero->next;
-                        this->primero->prev = ultimo;
-                        this->ultimo->next = this->primero;
-                    //}
+                    this->primero = this->primero->next;
+                    this->primero->prev = ultimo;
+                    this->ultimo->next = this->primero;
                 } else if (actual == this->ultimo) {
                     this->ultimo = ultimo->prev;
                     this->primero->prev = ultimo;
@@ -60,15 +56,15 @@ int CircularList::eliminar(int num) {
                 dato = actual->dato;
                 delete actual;
                 if (this->primero == NULL) {
-                    cout<<"Se elimino el ultimo elemento que quedaba"<<endl;
+                    cout<<"Se elimino el ultimo cliente que quedaba"<<endl;
                 } 
-                cout<<"Elemento encontrado y eliminado: "<<dato<<endl;
+                cout<<"Cliente encontrado y eliminado: "<<dato.getId()<<endl;
                 return dato;
             }
             actual = actual->next;
         } while(actual != this->primero);
 
-        cout<<"Elemento no encontrado"<<endl;
+        cout<<"Cliente no encontrado"<<endl;
         return dato;
     }
 }
@@ -80,7 +76,7 @@ void CircularList::mostrarLista() {
         cout<<"No hay nada por mostrar, lista vacia"<<endl;
     } else {
         do {
-            cout<<endl<<actual->prev->dato<<"<-"<<actual->dato<<"->"<<actual->next->dato<<endl;
+            cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
             actual = actual->next;   
         }while (actual != this->primero);
     }

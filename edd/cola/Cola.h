@@ -2,15 +2,16 @@
 #define COLA_H
 
 #include "../Nodo.h"
+#include "../../model/cliente/Cliente.h"
 
 class Cola{
     private:
-        Nodo* primero;
-        Nodo* ultimo;
+        Nodo<Cliente>* primero;
+        Nodo<Cliente>* ultimo;
     public:
         Cola();
-        void insertar(int dato);
-        int eliminar();
+        void insertar(Cliente);
+        Cliente eliminar();
         void mostrarCola();
 };
 

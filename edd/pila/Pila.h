@@ -5,10 +5,10 @@
 
 class Pila {
     private:
-        Nodo* pila;
+        Nodo<int>* pila;
     public:
         Pila();
-        void push(int id);
+        void push(int);
         int pop();
         void mostrarPila();
 };
