@@ -1,8 +1,10 @@
 #include <iostream>
-#include "controller/datosIniciales/DatosInicialesController.h"
+#include "controller/Controller.h"
 
-using namespace std;
+Controller control = Controller();
 
 int main() {
-    solicitarDatos();
+    control.iniciar();
+
+    return 0;
 }

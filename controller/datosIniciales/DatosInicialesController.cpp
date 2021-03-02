@@ -1,25 +1,21 @@
 #include <iostream>
 #include "../../view/datosIniciales/DatosIniciales.h"
+#include "DatosInicialesController.h"
 
 using namespace std;
 
-int cantClientesEspera;
-int cantCarretas1;
-int cantCarretas2;
-int cantClientesComprando;
-int cantClientesColaPago;
-int cantCajas;
+DatosInicialesController::DatosInicialesController(){}
 
-void solicitarDatos() {
+void DatosInicialesController::solicitarDatos() {
     bienvenida();
-    cantClientesEspera = solicitarClientesEnEspera();
-    cantCarretas1 = solicitarNumeroCarretas(1);
-    cantCarretas2 = solicitarNumeroCarretas(2);
-    cantClientesComprando = solicitarClientesComprando();
-    cantClientesColaPago = solicitarClientesColaPago();
-    cantCajas = solicitarCantidadCajas();
+    this->cantClientesEspera = solicitarClientesEnEspera();
+    this->cantCarretas1 = solicitarNumeroCarretas(1);
+    this->cantCarretas2 = solicitarNumeroCarretas(2);
+    this->cantClientesComprando = solicitarClientesComprando();
+    this->cantClientesColaPago = solicitarClientesColaPago();
+    this->cantCajas = solicitarCantidadCajas();
 }
 
-void inicializarEstructuras() {
+void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* carretas2, Cola* clientesEspera, CircularList* clientesCompra, Cola* clientesPago, LinkedList* cajas) {
     
 }
