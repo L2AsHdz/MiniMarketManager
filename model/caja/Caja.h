@@ -1,4 +1,4 @@
-#include "../Cliente/Cliente.h"
+#include "../cliente/Cliente.h"
 
 class Caja {
     private:

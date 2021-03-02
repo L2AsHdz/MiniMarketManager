@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Controller/datosIniciales/DatosInicialesController.h"
+#include "controller/datosIniciales/DatosInicialesController.h"
 
 using namespace std;
 

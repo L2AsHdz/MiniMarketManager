@@ -1,8 +1,8 @@
 #include <iostream>
-#include "EDD/Pila/Pila.h"
-#include "EDD/Cola/Cola.h"
-#include "EDD/LinkedList/LinkedList.h"
-#include "EDD/CircularList/CircularList.h"
+#include "edd/pila/Pila.h"
+#include "edd/cola/Cola.h"
+#include "edd/linkedList/LinkedList.h"
+#include "edd/circularList/CircularList.h"
 
 using namespace std;
 

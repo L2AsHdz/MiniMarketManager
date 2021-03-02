@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../View/DatosIniciales/DatosIniciales.h"
+#include "../../view/datosIniciales/DatosIniciales.h"
 
 using namespace std;
 
