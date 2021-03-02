@@ -67,7 +67,7 @@ void linkedListMenu() {
 
 void circularListMenu() {
     cout<<"\n\n1. Insertar"<<endl;
-    cout<<"2. Buscar"<<endl;
+    cout<<"2. Eliminar"<<endl;
     cout<<"3. MostrarPila"<<endl;
     cout<<"4. Regresar"<<endl;
 }
@@ -173,7 +173,7 @@ void eleccionCircularList(int opcion) {
             circularList.agregar(dato);
             break;
         case 2:
-            cout<<"Ingrese el numero a buscar ";
+            cout<<"Ingrese el numero a eliminar ";
             cin>>dato;
             circularList.eliminar(dato);
             break;
