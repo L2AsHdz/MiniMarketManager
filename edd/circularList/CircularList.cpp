@@ -15,15 +15,14 @@ void CircularList::agregar(Cliente cliente) {
         nuevo->next = nuevo;
         nuevo->prev = nuevo;
         this->primero = nuevo;
-        cout<<"Cliente "<<cliente.getId()<<" agregado al inicio"<<endl;
     } else {
         this->ultimo->next = nuevo;
         nuevo->prev = this->ultimo;
 
         this->primero->prev = nuevo;
         nuevo->next = this->primero;
-        cout<<"Cliente "<<cliente.getId()<<" agregado a la CircleList"<<endl;
     }
+    cout<<"El cliente "<<cliente.getId()<<" ha ingresado al area de compras."<<endl;
     this->ultimo = nuevo;
 }
 
@@ -31,7 +30,7 @@ Cliente CircularList::eliminar(int num) {
     Cliente dato;
 
     if (this->primero == NULL) {
-        cout<<"Lista vacia, nada por eliminar"<<endl;
+        cout<<"No hay clientes en el area de compras."<<endl;
         return dato;
     } else {
         Node actual = this->primero;
@@ -55,16 +54,13 @@ Cliente CircularList::eliminar(int num) {
                 if (actual == actual->next) this->primero = NULL; 
                 dato = actual->dato;
                 delete actual;
-                if (this->primero == NULL) {
-                    cout<<"Se elimino el ultimo cliente que quedaba"<<endl;
-                } 
-                cout<<"Cliente encontrado y eliminado: "<<dato.getId()<<endl;
+                cout<<"El cliente "<<dato.getId()<<" ha salido del area de compras."<<endl;
                 return dato;
             }
             actual = actual->next;
         } while(actual != this->primero);
 
-        cout<<"Cliente no encontrado"<<endl;
+        cout<<"Cliente no encontrado."<<endl;
         return dato;
     }
 }
@@ -73,7 +69,7 @@ void CircularList::mostrarLista() {
     Node actual = this->primero;
 
     if (actual == NULL) {
-        cout<<"No hay nada por mostrar, lista vacia"<<endl;
+        cout<<"No hay clientes en el area de compras."<<endl;
     } else {
         do {
             cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;

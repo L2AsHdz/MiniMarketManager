@@ -11,9 +11,9 @@ class Caja {
         Cliente cliente;
     public:
         Caja();
-        Caja(int);
+        Caja(int, int);
         int getId();
-        void aumentarServicio();
+        void setServicio(int);
         int getTiempoServicio();
         void setEstado(bool);
         bool getEstado();

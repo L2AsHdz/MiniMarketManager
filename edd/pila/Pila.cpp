@@ -16,20 +16,18 @@ void Pila::push(int id){
 
     nuevo->next = this->pila;
     this->pila = nuevo;
-    cout<<"Carreta "<<id<<" agregada a la pila"<<endl;
 }
 
 int Pila::pop() {
     int dato = -1;
 
     if (this->pila == NULL) {
-        cout<<"Pila vacia, imposible hacer pop"<<endl;
+        cout<<"No hay carretas en la pila"<<endl;
     } else {
         Node auxPop = this->pila;
         this->pila = auxPop->next;
         dato = auxPop->dato;
         delete auxPop;
-        cout<<"Carreta "<<dato<<" sacada de la pila"<<endl;
     }
     return dato;
 }
@@ -38,7 +36,7 @@ void Pila::mostrarPila() {
     Node actual = this->pila;
 
     if (actual == NULL) {
-        cout<<"Pila vacia, nada por mostrar"<<endl;
+        cout<<"No hay carretas en la pila"<<endl;
     } else {
         while(actual != NULL) {
             cout<<actual->dato<<" -> ";

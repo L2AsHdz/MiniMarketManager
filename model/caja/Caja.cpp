@@ -5,9 +5,9 @@ using namespace std;
 
 Caja::Caja(){}
 
-Caja::Caja(int id) {
+Caja::Caja(int id, int tiempoServicio) {
     this->id = id;
-    this->tiempoServicio = 0;
+    this->tiempoServicio = tiempoServicio;
     this->estado = true;
 }
 
@@ -15,8 +15,8 @@ int Caja::getId() {
     return this->id;
 }
 
-void Caja::aumentarServicio() {
-    this->tiempoServicio++;
+void Caja::setServicio(int tiempoServicio) {
+    this->tiempoServicio = tiempoServicio;
 }
 
 int Caja::getTiempoServicio() {

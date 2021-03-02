@@ -13,7 +13,6 @@ void LinkedList::agregar(Caja caja) {
 
     if(this->inicio == NULL) {
         this->inicio = nuevo;
-        cout<<"Caja "<<caja.getId()<<" agregada al inicio"<<endl;
     } else {
         Node temp = this->inicio;
 
@@ -23,8 +22,8 @@ void LinkedList::agregar(Caja caja) {
 
         nuevo->prev = temp;
         temp->next = nuevo;
-        cout<<"Caja "<<caja.getId()<<" agregada a la lista"<<endl;
     }
+    cout<<"La caja "<<caja.getId()<<" se ha agregado al area de cajas."<<endl;
 }
 
 Caja LinkedList::buscar(int num) {
@@ -48,7 +47,7 @@ void LinkedList::mostrarLista() {
     Node actual = this->inicio;
 
     if (actual == NULL) {
-        cout<<"Lista vacia, imposible imprimir"<<endl;
+        cout<<"No hay cajas"<<endl;
     } else {
         while (actual != NULL) {
         if (actual->prev == NULL) {
