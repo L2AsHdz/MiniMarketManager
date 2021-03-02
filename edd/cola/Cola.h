@@ -1,3 +1,6 @@
+#ifndef COLA_H
+#define COLA_H
+
 #include "../Nodo.h"
 
 class Cola{
@@ -11,3 +14,4 @@ class Cola{
         void mostrarCola();
 };
 
+#endif /*COLA_H*/

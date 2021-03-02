@@ -1,3 +1,6 @@
+#ifndef CAJA_H
+#define CAJA_H
+
 #include "../cliente/Cliente.h"
 
 class Caja {
@@ -17,3 +20,5 @@ class Caja {
         void setCliente(Cliente);
         Cliente getCliente();
 };
+
+#endif /*CAJA_HS*/

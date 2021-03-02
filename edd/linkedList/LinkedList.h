@@ -1,3 +1,6 @@
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
+
 #include "../Nodo.h"
 
 class LinkedList {
@@ -9,3 +12,5 @@ class LinkedList {
         int buscar(int num);
         void mostrarLista();
 };
+
+#endif /*LINKED_LIST_H*/

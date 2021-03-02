@@ -1,3 +1,6 @@
+#ifndef CIRCULAR_LIST_H
+#define CIRCULAR_LIST_H
+
 #include "../Nodo.h"
 
 class CircularList{
@@ -10,3 +13,5 @@ class CircularList{
         int eliminar(int num);
         void mostrarLista();
 };
+
+#endif /*CIRCULAR_LIST_H*/

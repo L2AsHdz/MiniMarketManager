@@ -1,3 +1,6 @@
+#ifndef DATOS_INICIALES-CONTROLLER-H
+#define DATOS_INICIALES-CONTROLLER-H
+
 #include <iostream>
 #include "../../view/datosIniciales/DatosInicialesView.h"
 #include "../../edd/pila/Pila.h"
@@ -19,3 +22,5 @@ class DatosInicialesController {
         void solicitarDatos();
         void inicializarEstructuras(Pila*, Pila*, Cola*, CircularList*, Cola*, LinkedList*);
 };
+
+#endif /*DATOS_INCIALES_CONTROLLER_H*/

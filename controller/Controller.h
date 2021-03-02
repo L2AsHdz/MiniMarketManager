@@ -1,3 +1,6 @@
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
+
 #include "datosIniciales/DatosInicialesController.h"
 
 class Controller {
@@ -7,3 +10,5 @@ class Controller {
         Controller();
         void iniciar();
 };
+
+#endif /*CONTROLLER_H*/

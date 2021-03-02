@@ -1,3 +1,6 @@
+#ifndef DATOS_INICIALES_VIEW_H
+#define DATOS_INICIALES_VIEW_H
+
 class DatosInicialesView {
     public:
         DatosInicialesView();
@@ -8,3 +11,5 @@ class DatosInicialesView {
         int solicitarClientesColaPago();
         int solicitarCantidadCajas();
 };
+
+#endif /*DATOS_INICIALES_VIEW_H*/
