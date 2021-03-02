@@ -9,21 +9,20 @@ CircularList::CircularList(){}
 
 void CircularList::agregar(int dato) {
     Node nuevo = new Nodo;
-    Node actual = this->inicio;
     nuevo->dato = dato;
 
-    if (this->inicio == NULL) {
-        this->inicio = nuevo;
+    if (this->primero == NULL) {
+        this->primero = nuevo;
         cout<<"Elemento "<<dato<<" agregado al inicio"<<endl;
     } else {
+        this->ultimo->next = nuevo;
+        nuevo->prev = this->ultimo;
 
-        while (actual->next != this->inicio) {
-            actual = actual->next;
-        }
+        this->primero->prev = nuevo;
+        nuevo->next = this->primero;
+        cout<<"Elemento "<<dato<<" agregado a la CircleList"<<endl;
     }
-    actual->next = nuevo;
-    nuevo->prev = actual;
-    this->inicio->prev = nuevo;
+    this->ultimo = nuevo;
 }
 
 int CircularList::eliminar(int num) {
@@ -31,10 +30,14 @@ int CircularList::eliminar(int num) {
 }
 
 void CircularList::mostrarLista() {
-    Node actual = this->inicio;
+    Node actual = this->primero;
 
-    do {
-        cout<<endl<<actual->prev->dato<<"<-"<<actual->dato<<"->"<<actual->next->dato<<endl;
-        actual = actual->next;
-    }while (actual != this->inicio);
+    if (actual == NULL) {
+        cout<<"No hay nada por mostrar, lista vacia"<<endl;
+    } else {
+        do {
+            cout<<endl<<actual->prev->dato<<"<-"<<actual->dato<<"->"<<actual->next->dato<<endl;
+            actual = actual->next;   
+        }while (actual != this->primero);
+    }
 }

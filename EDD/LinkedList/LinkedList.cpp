@@ -45,7 +45,10 @@ int LinkedList::buscar(int num) {
 void LinkedList::mostrarLista() {
     Node actual = this->inicio;
 
-    while (actual != NULL) {
+    if (actual == NULL) {
+        cout<<"Lista vacia, imposible imprimir"<<endl;
+    } else {
+        while (actual != NULL) {
         if (actual->prev == NULL) {
             cout<<endl<<actual->dato<<"->"<<actual->next->dato<<endl;
         } else if (actual->next == NULL) {
@@ -54,5 +57,6 @@ void LinkedList::mostrarLista() {
             cout<<endl<<actual->prev->dato<<"<-"<<actual->dato<<"->"<<actual->next->dato<<endl;
         }
         actual = actual->next;
+    }
     }
 }

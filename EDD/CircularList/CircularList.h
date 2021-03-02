@@ -2,7 +2,8 @@
 
 class CircularList{
     private:
-        Nodo* inicio;
+        Nodo* primero;
+        Nodo* ultimo;
     public:
         CircularList();
         void agregar(int dato);
