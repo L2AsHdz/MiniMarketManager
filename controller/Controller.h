@@ -4,12 +4,14 @@
 #include "datosIniciales/DatosInicialesController.h"
 #include "agregarClientes/AddClientesController.h"
 #include "colaEspera/ColaEsperaController.h"
+#include "areaCompras/AreaComprasController.h"
 
 class Controller {
     private:
         DatosInicialesController inicialData;
         AddClientesController addCliente;
         ColaEsperaController colaEspera;
+        AreaComprasController areaCompras;
 
         //Pilas para las carretas
         Pila pilaCarretas1;
@@ -26,6 +28,7 @@ class Controller {
         void ejecutarPasoSiguiente();
         void agregarClientesNuevos();
         void verificarColaEspera();
+        void verificarAreaCompras();
     public:
         Controller();
         void iniciar();

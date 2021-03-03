@@ -13,6 +13,7 @@ class CircularList{
         void agregar(Cliente);
         Cliente eliminar(int);
         void mostrarLista();
+        bool isEmpty();
 };
 
 #endif /*CIRCULAR_LIST_H*/

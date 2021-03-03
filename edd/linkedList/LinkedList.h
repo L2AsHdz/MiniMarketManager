@@ -10,8 +10,9 @@ class LinkedList {
     public:
         LinkedList();
         void agregar(Caja);
-        Caja buscar(int);
+        Caja* buscar(int);
         void mostrarLista();
+        int isFree();
 };
 
 #endif /*LINKED_LIST_H*/

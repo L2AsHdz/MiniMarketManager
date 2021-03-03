@@ -26,20 +26,17 @@ void LinkedList::agregar(Caja caja) {
     cout<<"La caja "<<caja.getId()<<" se ha agregado al area de cajas."<<endl;
 }
 
-Caja LinkedList::buscar(int num) {
-    Caja caja;
+Caja* LinkedList::buscar(int num) {
+    Caja* caja;
     Node actual = this->inicio;
 
     while (actual != NULL) {
         if (actual->dato.getId() == num) {
-            cout<<"Caja encontrada"<<endl;
-            caja = actual->dato;
+            caja = &actual->dato;
             return caja;
         }
         actual = actual->next;
     }
-
-    cout<<"No se encontro la caja"<<endl;
     return caja;
 }
 
@@ -60,4 +57,18 @@ void LinkedList::mostrarLista() {
         actual = actual->next;
     }
     }
+}
+
+int LinkedList::isFree() {
+    Node actual = this->inicio;
+    int free = -1;
+
+    while (actual != NULL) {
+        if (actual->dato.getEstado()) {
+            free = actual->dato.getId();
+            return free;
+        }
+        actual = actual->next;
+    }
+    return free;
 }

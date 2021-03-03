@@ -60,7 +60,6 @@ Cliente CircularList::eliminar(int num) {
             actual = actual->next;
         } while(actual != this->primero);
 
-        cout<<"Cliente no encontrado."<<endl;
         return dato;
     }
 }
@@ -75,5 +74,13 @@ void CircularList::mostrarLista() {
             cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
             actual = actual->next;   
         }while (actual != this->primero);
+    }
+}
+
+bool CircularList::isEmpty() {
+    if (this->primero == NULL) {
+        return true;
+    } else {
+        return false;
     }
 }

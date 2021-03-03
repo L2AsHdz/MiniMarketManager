@@ -7,6 +7,7 @@ Controller::Controller(){
     this->inicialData = DatosInicialesController();
     this->addCliente = AddClientesController();
     this->colaEspera = ColaEsperaController();
+    this->areaCompras = AreaComprasController();
 
     this->pilaCarretas1 = Pila();
     this->pilaCarretas2 = Pila();
@@ -34,6 +35,7 @@ void Controller::ejecutarPasoSiguiente() {
     if (option == 'y') {
         agregarClientesNuevos();
         verificarColaEspera();
+        verificarAreaCompras();
     }
 }
 
@@ -48,4 +50,9 @@ void Controller::agregarClientesNuevos() {
 void Controller::verificarColaEspera() {
     cout<<endl<<"Verificando cola de espera"<<endl;
     this->colaEspera.start(&this->clientesEnEspera, &this->pilaCarretas1, &this->pilaCarretas2, &this->clientesComprando);
+}
+
+void Controller::verificarAreaCompras() {
+    cout<<endl<<"Verificando area de compras."<<endl;
+    this->areaCompras.start(&this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
 }
