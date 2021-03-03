@@ -6,6 +6,7 @@ using namespace std;
 Controller::Controller(){
     this->inicialData = DatosInicialesController();
     this->addCliente = AddClientesController();
+    this->colaEspera = ColaEsperaController();
 
     this->pilaCarretas1 = Pila();
     this->pilaCarretas2 = Pila();
@@ -32,6 +33,7 @@ void Controller::ejecutarPasoSiguiente() {
 
     if (option == 'y') {
         agregarClientesNuevos();
+        verificarColaEspera();
     }
 }
 
@@ -41,4 +43,9 @@ void Controller::agregarClientesNuevos() {
     cin>>cantClientes;
     this->addCliente.start(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, 
     &this->clientesComprando, this->inicialData.getLastIdCliente(), cantClientes);
+}
+
+void Controller::verificarColaEspera() {
+    cout<<endl<<"Verificando cola de espera"<<endl;
+    this->colaEspera.start(&this->clientesEnEspera, &this->pilaCarretas1, &this->pilaCarretas2, &this->clientesComprando);
 }

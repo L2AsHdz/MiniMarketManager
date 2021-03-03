@@ -3,11 +3,13 @@
 
 #include "datosIniciales/DatosInicialesController.h"
 #include "agregarClientes/AddClientesController.h"
+#include "colaEspera/ColaEsperaController.h"
 
 class Controller {
     private:
         DatosInicialesController inicialData;
         AddClientesController addCliente;
+        ColaEsperaController colaEspera;
 
         //Pilas para las carretas
         Pila pilaCarretas1;
@@ -23,6 +25,7 @@ class Controller {
 
         void ejecutarPasoSiguiente();
         void agregarClientesNuevos();
+        void verificarColaEspera();
     public:
         Controller();
         void iniciar();
