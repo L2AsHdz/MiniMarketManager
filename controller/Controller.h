@@ -6,6 +6,7 @@
 #include "colaEspera/ColaEsperaController.h"
 #include "areaCompras/AreaComprasController.h"
 #include "colaPago/ColaPagoController.h"
+#include "clientesEnCaja/ClientesEnCajaController.h"
 
 class Controller {
     private:
@@ -14,6 +15,7 @@ class Controller {
         ColaEsperaController colaEspera;
         AreaComprasController areaCompras;
         ColaPagoController colaPago;
+        ClientesEnCajaController clientesEnCaja;
 
         //Pilas para las carretas
         Pila pilaCarretas1;
@@ -32,6 +34,7 @@ class Controller {
         void verificarColaEspera();
         void verificarAreaCompras();
         void verificarColaPago();
+        void salidaSistema();
     public:
         Controller();
         void iniciar();

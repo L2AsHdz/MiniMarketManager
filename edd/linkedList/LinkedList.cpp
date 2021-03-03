@@ -47,15 +47,15 @@ void LinkedList::mostrarLista() {
         cout<<"No hay cajas"<<endl;
     } else {
         while (actual != NULL) {
-        if (actual->prev == NULL) {
-            cout<<endl<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
-        } else if (actual->next == NULL) {
-            cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<endl;
-        } else {
-            cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
+            if (actual->prev == NULL) {
+                cout<<endl<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
+            } else if (actual->next == NULL) {
+                cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<endl;
+            } else {
+                cout<<endl<<actual->prev->dato.getId()<<"<-"<<actual->dato.getId()<<"->"<<actual->next->dato.getId()<<endl;
+            }
+            actual = actual->next;
         }
-        actual = actual->next;
-    }
     }
 }
 

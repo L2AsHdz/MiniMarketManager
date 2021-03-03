@@ -23,6 +23,7 @@ class DatosInicialesController {
         void solicitarDatos();
         void inicializarEstructuras(Pila*, Pila*, Cola*, CircularList*, Cola*, LinkedList*);
         int getLastIdCliente();
+        int getCantCajas();
 };
 
 #endif /*DATOS_INCIALES_CONTROLLER_H*/

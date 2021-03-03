@@ -7,6 +7,7 @@ class Caja {
     private:
         int id;
         int tiempoServicio;
+        int tiempoAtendido;
         bool estado;
         Cliente cliente;
     public:
@@ -15,6 +16,8 @@ class Caja {
         int getId();
         void setServicio(int);
         int getTiempoServicio();
+        void aumentarTiempoAtendido();
+        int getTiempoAtendido();
         void setEstado(bool);
         bool getEstado();
         void setCliente(Cliente);

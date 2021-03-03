@@ -8,6 +8,7 @@ Caja::Caja(){}
 Caja::Caja(int id, int tiempoServicio) {
     this->id = id;
     this->tiempoServicio = tiempoServicio;
+    this->tiempoAtendido = 0;
     this->estado = true;
 }
 
@@ -21,6 +22,14 @@ void Caja::setServicio(int tiempoServicio) {
 
 int Caja::getTiempoServicio() {
     return this->tiempoServicio;
+}
+
+void Caja::aumentarTiempoAtendido() {
+    this->tiempoAtendido++;
+}
+
+int Caja::getTiempoAtendido() {
+    return this->tiempoAtendido;
 }
 
 void Caja::setEstado(bool estado) {

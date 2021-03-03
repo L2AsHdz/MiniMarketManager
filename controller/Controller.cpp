@@ -9,6 +9,7 @@ Controller::Controller(){
     this->colaEspera = ColaEsperaController();
     this->areaCompras = AreaComprasController();
     this->colaPago = ColaPagoController();
+    this->clientesEnCaja = ClientesEnCajaController();
 
     this->pilaCarretas1 = Pila();
     this->pilaCarretas2 = Pila();
@@ -30,15 +31,19 @@ void Controller::iniciar() {
 
 void Controller::ejecutarPasoSiguiente() {
     char option;
-    cout<<endl<<"Desea ejecutar el siguiente paso? (y/n) ";
-    cin>>option;
+    
+    do {
+        cout<<endl<<"Desea ejecutar el siguiente paso? (y/n) ";
+        cin>>option;
 
-    if (option == 'y') {
-        agregarClientesNuevos();
-        verificarColaEspera();
-        verificarAreaCompras();
-        verificarColaPago();
-    }
+        if (option == 'y') {
+            agregarClientesNuevos();
+            verificarColaEspera();
+            verificarAreaCompras();
+            verificarColaPago();
+            salidaSistema();
+        }
+    } while (option != 'n');
 }
 
 void Controller::agregarClientesNuevos() {
@@ -62,4 +67,9 @@ void Controller::verificarAreaCompras() {
 void Controller::verificarColaPago() {
     cout<<endl<<"Verificando cola de pago."<<endl;
     this->colaPago.start(&this->clientesEsperaPago, &this->cajas);
+}
+
+void Controller::salidaSistema() {
+    cout<<endl<<"Atendiendo clientes en caja"<<endl;
+    this->clientesEnCaja.start(&this->cajas, &this->pilaCarretas1, &this->pilaCarretas2, this->inicialData.getCantCajas());
 }

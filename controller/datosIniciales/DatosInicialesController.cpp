@@ -77,3 +77,7 @@ void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* car
 int DatosInicialesController::getLastIdCliente() {
     return this->idCliente;
 }
+
+int DatosInicialesController::getCantCajas() {
+    return this->cantCajas;
+}
