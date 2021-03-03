@@ -17,10 +17,12 @@ class DatosInicialesController {
         int cantClientesComprando;
         int cantClientesColaPago;
         int cantCajas;
+        int idCliente;
     public:
         DatosInicialesController();
         void solicitarDatos();
         void inicializarEstructuras(Pila*, Pila*, Cola*, CircularList*, Cola*, LinkedList*);
+        int getLastIdCliente();
 };
 
 #endif /*DATOS_INCIALES_CONTROLLER_H*/

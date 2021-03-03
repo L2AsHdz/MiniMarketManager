@@ -6,6 +6,8 @@
 #include "../../edd/circularList/CircularList.h"
 
 class AddClientesController {
+    private:
+        void agregarClienteACompras(CircularList*, int, int);
     public:
         AddClientesController();
         void start(Pila*, Pila*, Cola*, CircularList*, int, int);

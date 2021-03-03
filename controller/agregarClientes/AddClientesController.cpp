@@ -17,11 +17,12 @@ Cola* clientesEspera, CircularList* clientesCompra, int idCliente, int cantClien
             agregarClienteACompras(clientesCompra, idCliente, carretas2->pop());
         } else {
             clientesEspera->insertar(Cliente(idCliente));
+            cout<<"El cliente "<<idCliente<<" ha ingresado a la cola de espera."<<endl;
         }
     }
 }
 
-void agregarClienteACompras(CircularList* clientesCompra, int id, int carreta) {
+void AddClientesController::agregarClienteACompras(CircularList* clientesCompra, int id, int carreta) {
     cout<<"La carreta "<<carreta<< " es tomada por el cliente "<<id<<"."<<endl;
     clientesCompra->agregar(Cliente(id, carreta));
 }

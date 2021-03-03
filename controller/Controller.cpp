@@ -5,6 +5,7 @@ using namespace std;
 
 Controller::Controller(){
     this->inicialData = DatosInicialesController();
+    this->addCliente = AddClientesController();
 
     this->pilaCarretas1 = Pila();
     this->pilaCarretas2 = Pila();
@@ -20,4 +21,24 @@ void Controller::iniciar() {
     cout<<endl<<"Inicializando estructuras de datos"<<endl;
     this->inicialData.inicializarEstructuras(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera,
     &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
+
+    ejecutarPasoSiguiente();
+}
+
+void Controller::ejecutarPasoSiguiente() {
+    char option;
+    cout<<endl<<"Desea ejecutar el siguiente paso? (y/n) ";
+    cin>>option;
+
+    if (option == 'y') {
+        agregarClientesNuevos();
+    }
+}
+
+void Controller::agregarClientesNuevos() {
+    int cantClientes;
+    cout<<endl<<"Cuantos clientes entraran al sistema ";
+    cin>>cantClientes;
+    this->addCliente.start(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, 
+    &this->clientesComprando, this->inicialData.getLastIdCliente(), cantClientes);
 }

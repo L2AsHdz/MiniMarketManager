@@ -2,10 +2,13 @@
 #define CONTROLLER_H
 
 #include "datosIniciales/DatosInicialesController.h"
+#include "agregarClientes/AddClientesController.h"
 
 class Controller {
     private:
         DatosInicialesController inicialData;
+        AddClientesController addCliente;
+
         //Pilas para las carretas
         Pila pilaCarretas1;
         Pila pilaCarretas2;
@@ -17,6 +20,9 @@ class Controller {
         Cola clientesEsperaPago;
         //LinkedList para las cajas
         LinkedList cajas;
+
+        void ejecutarPasoSiguiente();
+        void agregarClientesNuevos();
     public:
         Controller();
         void iniciar();

@@ -18,8 +18,8 @@ void DatosInicialesController::solicitarDatos() {
 }
 
 void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* carretas2, Cola* clientesEspera, CircularList* clientesCompra, Cola* clientesPago, LinkedList* cajas) {
+    this->idCliente = 1;
     int idCarreta = 1;
-    int idCliente = 1;
     int clienteActual;
     int carretaActual;
     int tiempoServicio;
@@ -72,4 +72,8 @@ void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* car
         cin>>tiempoServicio;
         cajas->agregar(Caja(i, tiempoServicio));cout<<endl;
     }
+}
+
+int DatosInicialesController::getLastIdCliente() {
+    return this->idCliente;
 }
