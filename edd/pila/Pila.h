@@ -11,6 +11,7 @@ class Pila {
         void push(int);
         int pop();
         void mostrarPila();
+        bool isEmpty();
 };
 
 #endif /*PILA_H*/

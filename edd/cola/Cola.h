@@ -13,6 +13,7 @@ class Cola{
         void insertar(Cliente);
         Cliente eliminar();
         void mostrarCola();
+        bool isEmpty();
 };
 
 #endif /*COLA_H*/

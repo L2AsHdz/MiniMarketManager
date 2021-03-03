@@ -44,3 +44,11 @@ void Pila::mostrarPila() {
         }
     }
 }
+
+bool Pila::isEmpty() {
+    if (this->pila == NULL) {
+        return true;
+    } else {
+        return false;
+    }
+}

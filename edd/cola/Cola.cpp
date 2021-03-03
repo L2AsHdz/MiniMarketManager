@@ -47,3 +47,11 @@ void Cola::mostrarCola() {
         }
     }
 }
+
+bool Cola::isEmpty() {
+    if (this->primero == NULL) {
+        return true;
+    } else {
+        return false;
+    }
+}
