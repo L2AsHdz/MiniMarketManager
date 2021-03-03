@@ -28,6 +28,10 @@ void Caja::aumentarTiempoAtendido() {
     this->tiempoAtendido++;
 }
 
+void Caja::resetTiempoAtendido() {
+    this->tiempoAtendido = 0;
+}
+
 int Caja::getTiempoAtendido() {
     return this->tiempoAtendido;
 }

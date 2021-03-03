@@ -22,7 +22,7 @@ void ClientesEnCajaController::start(LinkedList* cajas, Pila* carretas1, Pila* c
                 } else {
                     carretas2->push(cliente.getIdCarreta());
                 }
-
+                caja->resetTiempoAtendido();
                 caja->setEstado(true);
                 cout<<"El cliente "<<cliente.getId()<<" salio del sistema y libero la carreta "<<cliente.getIdCarreta()<<"."<<endl;
             } else {

@@ -5,7 +5,7 @@ using namespace std;
 
 AddClientesController::AddClientesController(){}
 
-void AddClientesController::start(Pila* carretas1, Pila* carretas2, 
+int AddClientesController::start(Pila* carretas1, Pila* carretas2, 
 Cola* clientesEspera, CircularList* clientesCompra, int idCliente, int cantClientes) {
     int idClienteInicio = idCliente;
     
@@ -20,6 +20,7 @@ Cola* clientesEspera, CircularList* clientesCompra, int idCliente, int cantClien
             cout<<"El cliente "<<idCliente<<" ha ingresado a la cola de espera."<<endl;
         }
     }
+    return idCliente;
 }
 
 void AddClientesController::agregarClienteACompras(CircularList* clientesCompra, int id, int carreta) {

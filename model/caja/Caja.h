@@ -17,6 +17,7 @@ class Caja {
         void setServicio(int);
         int getTiempoServicio();
         void aumentarTiempoAtendido();
+        void resetTiempoAtendido();
         int getTiempoAtendido();
         void setEstado(bool);
         bool getEstado();

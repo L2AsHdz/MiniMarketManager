@@ -25,33 +25,40 @@ void Controller::iniciar() {
     cout<<endl<<"Inicializando estructuras de datos"<<endl;
     this->inicialData.inicializarEstructuras(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera,
     &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
+    this->lastIdCliente = this->inicialData.getLastIdCliente();
 
     ejecutarPasoSiguiente();
 }
 
 void Controller::ejecutarPasoSiguiente() {
     char option;
+    int i = 0;
     
     do {
         cout<<endl<<"Desea ejecutar el siguiente paso? (y/n) ";
         cin>>option;
 
         if (option == 'y') {
+            cout<<endl<<"\n\n*************************PASO "<<i<<"*************************"<<endl;
             agregarClientesNuevos();
             verificarColaEspera();
             verificarAreaCompras();
             verificarColaPago();
             salidaSistema();
         }
+        i++;
     } while (option != 'n');
 }
 
 void Controller::agregarClientesNuevos() {
     int cantClientes;
+    int idCliente;
     cout<<endl<<"Cuantos clientes entraran al sistema ";
     cin>>cantClientes;
-    this->addCliente.start(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, 
-    &this->clientesComprando, this->inicialData.getLastIdCliente(), cantClientes);
+    idCliente = this->addCliente.start(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, 
+    &this->clientesComprando, this->lastIdCliente, cantClientes);
+    this->lastIdCliente = idCliente;
+    cout<<endl<<this->lastIdCliente<<" - "<<idCliente<<endl;
 }
 
 void Controller::verificarColaEspera() {

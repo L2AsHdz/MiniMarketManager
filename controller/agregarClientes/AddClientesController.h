@@ -10,7 +10,7 @@ class AddClientesController {
         void agregarClienteACompras(CircularList*, int, int);
     public:
         AddClientesController();
-        void start(Pila*, Pila*, Cola*, CircularList*, int, int);
+        int start(Pila*, Pila*, Cola*, CircularList*, int, int);
 };
 
 #endif /*ADD_CLIENTES_CONTROLLER_H*/

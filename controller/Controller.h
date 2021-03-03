@@ -17,6 +17,9 @@ class Controller {
         ColaPagoController colaPago;
         ClientesEnCajaController clientesEnCaja;
 
+        //Contador para el id del cliente
+        int lastIdCliente;
+
         //Pilas para las carretas
         Pila pilaCarretas1;
         Pila pilaCarretas2;
