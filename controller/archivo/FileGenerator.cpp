@@ -7,7 +7,6 @@ FileGenerator::FileGenerator(){}
 
 void FileGenerator::generar(Pila* carretas1, Pila* carretas2, Cola* clientesEspera, CircularList* clientesCompra, Cola* clientesPago, LinkedList* cajas) {
 
-    cout<<"creandoArchivo"<<endl;
     ofstream file("graficas.dot");
 
     file<<"digraph g {"<<endl;
@@ -17,22 +16,18 @@ void FileGenerator::generar(Pila* carretas1, Pila* carretas2, Cola* clientesEspe
 
     generarCajas(&file, cajas);
 
-    generarListaCompras(&file, clientesCompra);
-
-    cout<<"generando cola de pagos"<<endl;
     generarColaPago(&file, clientesPago);
 
+    generarListaCompras(&file, clientesCompra);
+
     //cout<<"generando cola de espera"<<endl;
-    //generarColaEspera(&file, clientesEspera);
+    generarColaEspera(&file, clientesEspera);
     
-    cout<<"generando pilas"<<endl;
     generarPilas(&file, carretas1, carretas2);
 
     file<<"}";
 
-    cout<<"cerrando archivo"<<endl;
     file.close();
-    cout<<"compilando archivo"<<endl;
     system("dot -Tpng graficas.dot -o graphics.png");
 }
 
@@ -55,7 +50,6 @@ void FileGenerator::generarPilas(ofstream* file, Pila* carretas1, Pila* carretas
 
 void FileGenerator::generarColaEspera(ofstream* file, Cola* clientesEspera) {
 
-        clientesEspera->mostrarCola();
     if (!clientesEspera->isEmpty()) {
         *file<<"\tsubgraph ClusterColaEspera {"<<endl;
         *file<<"\t\tlabel=\"Cola espera\";"<<endl;

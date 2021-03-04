@@ -10,6 +10,7 @@ Cola::Cola(){}
 void Cola::insertar(Cliente cliente) {
     Node nuevo = new Nodo<Cliente>;
     nuevo->dato = cliente;
+    nuevo->next = NULL;
 
     if(this->primero == NULL) {
         this->primero = nuevo;

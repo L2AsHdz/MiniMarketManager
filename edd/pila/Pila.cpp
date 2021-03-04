@@ -58,7 +58,7 @@ string Pila::getNodos() {
     Node actual = this->pila;
 
     while(actual != NULL) {
-        nodos = nodos + to_string(actual->dato) + "|";
+        nodos = nodos + "|" + to_string(actual->dato);
         actual = actual->next;
     }
 

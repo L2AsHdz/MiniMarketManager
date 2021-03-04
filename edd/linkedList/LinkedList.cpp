@@ -92,25 +92,44 @@ string LinkedList::getNodos() {
     Node actual = this->inicio;
     string nodos ="";
     string id;
+    string estado; 
+    string turnos;
     string idNext;
+    string idPrev;
     string idCarr;
     string idCli;
 
     while (actual != NULL) {
         id = to_string(actual->dato.getId());
-        idCli = to_string(actual->dato.getCliente().getId());
-        idCarr = to_string(actual->dato.getCliente().getIdCarreta());
-        nodos = nodos + "\t\tcaja"+id+"[label = \"Caja "+id+"\\nCliente "+idCli+"\\nCarreta "+idCarr+"\"];\n";
+        turnos = to_string(actual->dato.getTiempoServicio());
+        estado = (actual->dato.getEstado())? "libre" : "ocupada" ;
+
+        if (actual->dato.getEstado()) {
+            nodos = nodos + "\t\tcaja"+id+"[label = \"Caja "+id+"\\n"+estado+"\\n"+turnos+" turnos\"];\n";
+        } else {
+            idCli = to_string(actual->dato.getCliente().getId());
+            idCarr = to_string(actual->dato.getCliente().getIdCarreta());
+            nodos = nodos + "\t\tcaja"+id+"[label = \"Caja "+id+"\\n"+estado+"\\n"+turnos+" turnos\\nCliente "+idCli+"\\nCarreta "+idCarr+"\"];\n";
+        }
+
         actual = actual->next;
     }
 
     actual = this->inicio;
     while (actual != NULL) {
         
-        if (actual->next != NULL) {
-            id = to_string(actual->dato.getId());
+        id = to_string(actual->dato.getId());
+        if (actual->prev == NULL) {
             idNext = to_string(actual->next->dato.getId());
             nodos = nodos + "\t\tcaja"+id+" -> caja"+idNext+";\n";
+        } else if (actual->next == NULL) {
+            idPrev = to_string(actual->prev->dato.getId());
+            nodos = nodos + "\t\tcaja"+id+" -> caja"+idPrev+";\n";
+        } else {
+            idNext = to_string(actual->next->dato.getId());
+            idPrev = to_string(actual->prev->dato.getId());
+            nodos = nodos + "\t\tcaja"+id+" -> caja"+idNext+";\n";
+            nodos = nodos + "\t\tcaja"+id+" -> caja"+idPrev+";\n";
         }
 
         actual = actual->next;

@@ -28,6 +28,8 @@ void Controller::iniciar() {
     &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
     this->lastIdCliente = this->inicialData.getLastIdCliente();
 
+    this->fileManager.generar(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
+    cout<<"archivo generado"<<endl;
     ejecutarPasoSiguiente();
 }
 
