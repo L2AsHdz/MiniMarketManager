@@ -47,6 +47,7 @@ void Controller::ejecutarPasoSiguiente() {
             verificarColaPago();
             salidaSistema();
             cout<<"Se ha generado el archivo"<<endl;
+            //this->clientesEnEspera.mostrarCola();
             this->fileManager.generar(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
         }
         i++;
@@ -61,7 +62,6 @@ void Controller::agregarClientesNuevos() {
     idCliente = this->addCliente.start(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, 
     &this->clientesComprando, this->lastIdCliente, cantClientes);
     this->lastIdCliente = idCliente;
-    cout<<endl<<this->lastIdCliente<<" - "<<idCliente<<endl;
 }
 
 void Controller::verificarColaEspera() {

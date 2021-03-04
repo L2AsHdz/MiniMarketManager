@@ -152,7 +152,7 @@ void eleccionLinkedList(int opcion) {
         case 1:
             cout<<"Ingrese el id de la caja a agregar ";
             cin>>dato;
-            list.agregar(Caja(dato));
+            list.agregar(Caja(dato, 1));
             break;
         case 2:
             cout<<"Ingrese el id de la caja a buscar ";

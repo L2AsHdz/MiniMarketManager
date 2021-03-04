@@ -10,6 +10,8 @@
 class FileGenerator {
     private:
         void generarPilas(ofstream*, Pila*, Pila*);
+        void generarColaEspera(ofstream*, Cola*);
+        void generarColaPago(ofstream*, Cola*);
     public:
         FileGenerator();
         void generar(Pila*, Pila*, Cola*, CircularList*, Cola*, LinkedList*);

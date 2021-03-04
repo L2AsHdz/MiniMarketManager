@@ -55,3 +55,52 @@ bool Cola::isEmpty() {
         return false;
     }
 }
+
+string Cola::getNodosE() {
+    Node actual = this->primero;
+    string nodos = "";
+
+    while (actual != NULL) {
+        string id = to_string(actual->dato.getId());
+        cout<<"creando nodo"<<endl;
+        nodos = nodos + "\t\tclient"+id+"[label = \"Cliente "+id+"\"];\n";
+        actual = actual->next;
+    }
+
+    cout<<"crear edges"<<endl;
+    actual = this->primero;
+    while (actual != NULL) {
+        if (actual->next != NULL) {
+            string id = to_string(actual->dato.getId());
+            string idNext = to_string(actual->next->dato.getId());
+            cout<<"creando edge"<<endl;
+            nodos = nodos + "\t\tclient"+id+" -> client"+idNext+";\n";
+        }
+        actual = actual->next;
+    }
+
+    return nodos;
+}
+
+string Cola::getNodosP() {
+    Node actual = this->primero;
+    string nodos = "";
+
+    while (actual != NULL) {
+        string id = to_string(actual->dato.getId());
+        nodos = nodos + "\t\tclientP"+id+"[label = \"Cliente "+id+"\"];\n";
+        actual = actual->next;
+    }
+
+    actual = this->primero;
+    while (actual != NULL) {
+        if (actual->next != NULL) {
+            string id = to_string(actual->dato.getId());
+            string idNext = to_string(actual->next->dato.getId());
+            nodos = nodos + "\t\tclientP"+id+" -> clientP"+idNext+";\n";
+        }
+        actual = actual->next;
+    }
+
+    return nodos;
+}
