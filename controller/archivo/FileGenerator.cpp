@@ -15,11 +15,13 @@ void FileGenerator::generar(Pila* carretas1, Pila* carretas2, Cola* clientesEspe
     file<<"\tlabeljust = \"c\";"<<endl;
     file<<"\tnode[shape=rect,width=1,height=.1];"<<endl;
 
+    generarListaCompras(&file, clientesCompra);
+
     cout<<"generando cola de pagos"<<endl;
     generarColaPago(&file, clientesPago);
 
-    cout<<"generando cola de espera"<<endl;
-    generarColaEspera(&file, clientesEspera);
+    //cout<<"generando cola de espera"<<endl;
+    //generarColaEspera(&file, clientesEspera);
     
     cout<<"generando pilas"<<endl;
     generarPilas(&file, carretas1, carretas2);
@@ -67,6 +69,16 @@ void FileGenerator::generarColaPago(ofstream* file, Cola* clientesPago) {
         *file<<"\tsubgraph ClusterColaPago {"<<endl;
         *file<<"\t\tlabel=\"Cola pago\";"<<endl;
         *file<<clientesPago->getNodosP();
+        *file<<"\t}"<<endl;
+    }
+}
+
+void FileGenerator::generarListaCompras(ofstream* file, CircularList* clientesCompras) {
+
+    if (!clientesCompras->isEmpty()) {
+        *file<<"\tsubgraph ClusterCompras {"<<endl;
+        *file<<"\t\tlabel=\"Compras\";"<<endl;
+        *file<<clientesCompras->getNodos();
         *file<<"\t}"<<endl;
     }
 }

@@ -84,3 +84,37 @@ bool CircularList::isEmpty() {
         return false;
     }
 }
+
+string CircularList::getNodos() {
+    Node actual = this->primero;
+    string nodos ="";
+    string id;
+    string idNext;
+    string idPrev;
+    string idCarr;
+
+    do {
+        id = to_string(actual->dato.getId());
+        idCarr = to_string(actual->dato.getIdCarreta());
+        nodos = nodos + "\t\tclientC"+id+"[label = \"Cliente "+id+"\\nCarreta "+idCarr+"\"];\n";
+        actual = actual->next;
+    }while (actual != this->primero);
+
+    actual = this->primero;
+    do {
+        id = to_string(actual->dato.getId());
+        idNext = to_string(actual->next->dato.getId());
+        idPrev = to_string(actual->prev->dato.getId());
+        if (actual->prev == this->ultimo) {
+            nodos = nodos +"\t\tclientC"+id+" -> clientC"+idNext+";\n";
+        } else if (actual->next == this->primero) {
+            nodos = nodos +"\t\tclientC"+id+" -> clientC"+idNext+"[constraint=false, style=solid, dir=both];\n";
+        } else {
+            nodos = nodos +"\t\tclientC"+id+" -> clientC"+idNext+";\n";
+            nodos = nodos +"\t\tclientC"+id+" -> clientC"+idPrev+";\n";
+        }
+        actual = actual->next;
+    }while (actual != this->primero);
+
+    return nodos;
+}
