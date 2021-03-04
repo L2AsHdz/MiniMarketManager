@@ -13,6 +13,7 @@ class FileGenerator {
         void generarColaEspera(ofstream*, Cola*);
         void generarColaPago(ofstream*, Cola*);
         void generarListaCompras(ofstream*, CircularList*);
+        void generarCajas(ofstream*, LinkedList*);
     public:
         FileGenerator();
         void generar(Pila*, Pila*, Cola*, CircularList*, Cola*, LinkedList*);
