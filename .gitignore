@@ -1,4 +1,3 @@
 a.out
-EDD/*.h.ghc
-EDD/Cola/*.h.ghc
-EDD/Pila/*.h.ghc
+graficas.dot
+graphics.png

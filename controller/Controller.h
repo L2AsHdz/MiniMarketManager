@@ -7,7 +7,7 @@
 #include "areaCompras/AreaComprasController.h"
 #include "colaPago/ColaPagoController.h"
 #include "clientesEnCaja/ClientesEnCajaController.h"
-
+#include "archivo/FileGenerator.h"
 class Controller {
     private:
         DatosInicialesController inicialData;
@@ -16,6 +16,8 @@ class Controller {
         AreaComprasController areaCompras;
         ColaPagoController colaPago;
         ClientesEnCajaController clientesEnCaja;
+        FileGenerator fileManager;
+        
 
         //Contador para el id del cliente
         int lastIdCliente;

@@ -52,3 +52,15 @@ bool Pila::isEmpty() {
         return false;
     }
 }
+
+string Pila::getNodos() {
+    string nodos ="";
+    Node actual = this->pila;
+
+    while(actual != NULL) {
+        nodos = nodos + to_string(actual->dato) + "|";
+        actual = actual->next;
+    }
+
+    return nodos;
+}

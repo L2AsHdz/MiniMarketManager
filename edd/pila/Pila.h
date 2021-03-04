@@ -2,6 +2,9 @@
 #define PILA_H
 
 #include "../Nodo.h"
+#include <string>
+
+using namespace std;
 
 class Pila {
     private:
@@ -12,6 +15,7 @@ class Pila {
         int pop();
         void mostrarPila();
         bool isEmpty();
+        string getNodos();
 };
 
 #endif /*PILA_H*/

@@ -10,6 +10,7 @@ Controller::Controller(){
     this->areaCompras = AreaComprasController();
     this->colaPago = ColaPagoController();
     this->clientesEnCaja = ClientesEnCajaController();
+    this->fileManager = FileGenerator();
 
     this->pilaCarretas1 = Pila();
     this->pilaCarretas2 = Pila();
@@ -45,6 +46,8 @@ void Controller::ejecutarPasoSiguiente() {
             verificarAreaCompras();
             verificarColaPago();
             salidaSistema();
+            cout<<"Se ha generado el archivo"<<endl;
+            this->fileManager.generar(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
         }
         i++;
     } while (option != 'n');
