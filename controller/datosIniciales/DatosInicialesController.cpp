@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "DatosInicialesController.h"
 
 using namespace std;
@@ -22,7 +23,6 @@ void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* car
     int idCarreta = 1;
     int clienteActual;
     int carretaActual;
-    int tiempoServicio;
 
     //Se agregan los clientes a la cola de pago
     cout<<endl<<"********************Cola de pago********************"<<endl;
@@ -66,11 +66,16 @@ void DatosInicialesController::inicializarEstructuras(Pila* carretas1, Pila* car
     }
 
     //Se agregan las caja a la lista
+    char tiempoServicio[5];
     cout<<endl<<"********************Cajas********************"<<endl;
     for (int i = 1; i <= cantCajas; i++) {
         cout<<"Ingrese el tiempo de servicio para la caja "<<i<<": ";
         cin>>tiempoServicio;
-        cajas->agregar(Caja(i, tiempoServicio));cout<<endl;
+        while (atoi(tiempoServicio) == 0) {
+            cout<<"Debe ingresar un numero mayor a cero! ";
+            cin>>tiempoServicio;
+        }
+        cajas->agregar(Caja(i, atoi(tiempoServicio)));cout<<endl;
     }
 }
 

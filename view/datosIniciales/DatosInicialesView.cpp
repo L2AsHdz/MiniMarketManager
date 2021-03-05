@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <string.h>
 #include "DatosInicialesView.h"
 
 using namespace std;
@@ -11,46 +13,72 @@ void DatosInicialesView::bienvenida() {
 }
 
 int DatosInicialesView::solicitarClientesEnEspera() {
-    int cantClientes;
+    char cantClientes[5];
     
     cout<<endl<<"Ingrese la cantidad de clientes en la cola de espera: ";
     cin>>cantClientes;
+    while (atoi(cantClientes) == 0) {
+        cout<<"Debe ingresar un numero mayor a cero! ";
+        cin>>cantClientes;
+    }
 
-    return cantClientes;
+    return atoi(cantClientes);
 }
 
 int DatosInicialesView::solicitarNumeroCarretas(int p) {
-    int cantCarretas;
+    char cantCarretas[5];
 
     cout<<endl<<"Ingrese la cantidad de carretas en la pila "<<p<<": ";
     cin>>cantCarretas;
+    while (atoi(cantCarretas) == 0) {
+        cout<<"Debe ingresar un numero mayor a cero! ";
+        cin>>cantCarretas;
+    }
 
-    return cantCarretas;
+    return atoi(cantCarretas);
 }
 
 int DatosInicialesView::solicitarClientesComprando() {
-    int cantClientes;
+    char cantClientes[5];
 
     cout<<endl<<"Ingrese la cantidad de clientes comprando: ";
     cin>>cantClientes;
+    while (atoi(cantClientes) == 0) {
+        if (strcmp(cantClientes, "0") == 0) {
+            break;
+        }
+        cout<<"Debe ingresar un numero! ";
+        cin>>cantClientes;
+    }
 
-    return cantClientes;
+    return atoi(cantClientes);
 }
 
 int DatosInicialesView::solicitarClientesColaPago() {
-    int cantClientes;
+    char cantClientes[5];
 
     cout<<endl<<"Ingrese la cantidad de clientes en la cola de pago ";
     cin>>cantClientes;
+    while (atoi(cantClientes) == 0) {
+        if (strcmp(cantClientes, "0") == 0) {
+            break;
+        }
+        cout<<"Debe ingresar un numero! ";
+        cin>>cantClientes;
+    }
 
-    return cantClientes; 
+    return atoi(cantClientes); 
 }
 
 int DatosInicialesView::solicitarCantidadCajas() {
-    int cantCajas;
+    char cantCajas[5];
 
     cout<<endl<<"Ingrese la cantidad de cajas ";
     cin>> cantCajas;
+    while (atoi(cantCajas) == 0) {
+        cout<<"Debe ingresar un numero mayor a cero! ";
+        cin>>cantCajas;
+    }
 
-    return cantCajas;
+    return atoi(cantCajas);
 }

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <string.h>
 #include "Controller.h"
 
 using namespace std;
@@ -50,37 +52,48 @@ void Controller::ejecutarPasoSiguiente() {
             salidaSistema();
             this->fileManager.generar(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
             cout<<"\n**Se ha generado la grafica**"<<endl;
+            i++;
+        } else if (option == 'n') {
+            cout<<"Saliendo..."<<endl;
+        } else {
+            cout<<"Opcion incorrecta, intente de nuevo."<<endl;
         }
-        i++;
     } while (option != 'n');
 }
 
 void Controller::agregarClientesNuevos() {
-    int cantClientes;
+    char cantClientes[5];
     int idCliente;
-    cout<<endl<<"Cuantos clientes entraran al sistema ";
+    cout<<endl<<"Cuantos clientes entraran al sistema? ";
     cin>>cantClientes;
+    while (atoi(cantClientes) == 0) {
+        if (strcmp(cantClientes, "0") == 0) {
+            break;
+        }
+        cout<<"Debe ingresar un numero! ";
+        cin>>cantClientes;
+    };
     idCliente = this->addCliente.start(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, 
-    &this->clientesComprando, this->lastIdCliente, cantClientes);
+    &this->clientesComprando, this->lastIdCliente, atoi(cantClientes));
     this->lastIdCliente = idCliente;
 }
 
 void Controller::verificarColaEspera() {
-    cout<<endl<<"Verificando cola de espera"<<endl;
+    cout<<endl<<"Verificando cola de espera:"<<endl;
     this->colaEspera.start(&this->clientesEnEspera, &this->pilaCarretas1, &this->pilaCarretas2, &this->clientesComprando);
 }
 
 void Controller::verificarAreaCompras() {
-    cout<<endl<<"Verificando area de compras."<<endl;
+    cout<<endl<<"Verificando area de compras:"<<endl;
     this->areaCompras.start(&this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
 }
 
 void Controller::verificarColaPago() {
-    cout<<endl<<"Verificando cola de pago."<<endl;
+    cout<<endl<<"Verificando cola de pago:"<<endl;
     this->colaPago.start(&this->clientesEsperaPago, &this->cajas);
 }
 
 void Controller::salidaSistema() {
-    cout<<endl<<"Atendiendo clientes en caja"<<endl;
+    cout<<endl<<"Atendiendo clientes en caja:"<<endl;
     this->clientesEnCaja.start(&this->cajas, &this->pilaCarretas1, &this->pilaCarretas2, this->inicialData.getCantCajas());
 }
