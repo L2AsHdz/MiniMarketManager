@@ -24,7 +24,7 @@ void ClientesEnCajaController::start(LinkedList* cajas, Pila* carretas1, Pila* c
                 }
                 caja->resetTiempoAtendido();
                 caja->setEstado(true);
-                cout<<"El cliente "<<cliente.getId()<<" salio del sistema y libero la carreta "<<cliente.getIdCarreta()<<"."<<endl;
+                cout<<"El cliente "<<cliente.getId()<<" salio del sistema, libero la carreta "<<cliente.getIdCarreta()<<" y la caja "<<caja->getId()<<"."<<endl;
             } else {
                 cout<<"El cliente "<<cliente.getId()<<" esta siendo atendido en la caja "<<caja->getId()<<"."<<endl;
                 caja->aumentarTiempoAtendido();

@@ -29,7 +29,7 @@ void Controller::iniciar() {
     this->lastIdCliente = this->inicialData.getLastIdCliente();
 
     this->fileManager.generar(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
-    cout<<"archivo generado"<<endl;
+    cout<<"\n**Se ha generado la grafica**"<<endl;
     ejecutarPasoSiguiente();
 }
 
@@ -42,15 +42,14 @@ void Controller::ejecutarPasoSiguiente() {
         cin>>option;
 
         if (option == 'y') {
-            cout<<endl<<"\n\n*************************PASO "<<i<<"*************************"<<endl;
+            cout<<endl<<"\n\n*************************PASO "<<i+1<<"*************************"<<endl;
             agregarClientesNuevos();
             verificarColaEspera();
             verificarAreaCompras();
             verificarColaPago();
             salidaSistema();
-            cout<<"Se ha generado el archivo"<<endl;
-            //this->clientesEnEspera.mostrarCola();
             this->fileManager.generar(&this->pilaCarretas1, &this->pilaCarretas2, &this->clientesEnEspera, &this->clientesComprando, &this->clientesEsperaPago, &this->cajas);
+            cout<<"\n**Se ha generado la grafica**"<<endl;
         }
         i++;
     } while (option != 'n');

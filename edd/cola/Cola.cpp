@@ -65,18 +65,15 @@ string Cola::getNodosE() {
 
     while (actual != NULL) {
         id = to_string(actual->dato.getId());
-        cout<<"creando nodo"<<endl;
         nodos = nodos + "\t\tclient"+id+"[label = \"Cliente "+id+"\"];\n";
         actual = actual->next;
     }
 
-    cout<<"crear edges"<<endl;
     actual = this->primero;
     while (actual != NULL) {
         if (actual->next != NULL) {
             id = to_string(actual->dato.getId());
             idNext = to_string(actual->next->dato.getId());
-            cout<<"creando edge"<<endl;
             nodos = nodos + "\t\tclient"+id+" -> client"+idNext+";\n";
         }
         actual = actual->next;

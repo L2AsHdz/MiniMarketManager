@@ -20,7 +20,6 @@ void FileGenerator::generar(Pila* carretas1, Pila* carretas2, Cola* clientesEspe
 
     generarListaCompras(&file, clientesCompra);
 
-    //cout<<"generando cola de espera"<<endl;
     generarColaEspera(&file, clientesEspera);
     
     generarPilas(&file, carretas1, carretas2);
@@ -28,7 +27,7 @@ void FileGenerator::generar(Pila* carretas1, Pila* carretas2, Cola* clientesEspe
     file<<"}";
 
     file.close();
-    system("dot -Tpng graficas.dot -o graphics.png");
+    system("dot -Tpng graficas.dot -o graphic.png");
 }
 
 void FileGenerator::generarPilas(ofstream* file, Pila* carretas1, Pila* carretas2) {
@@ -53,7 +52,6 @@ void FileGenerator::generarColaEspera(ofstream* file, Cola* clientesEspera) {
     if (!clientesEspera->isEmpty()) {
         *file<<"\tsubgraph ClusterColaEspera {"<<endl;
         *file<<"\t\tlabel=\"Cola espera\";"<<endl;
-        cout<<"pidiendo nodos de cola"<<endl;
         *file<<clientesEspera->getNodosE();
         *file<<"\t}"<<endl;
     }
