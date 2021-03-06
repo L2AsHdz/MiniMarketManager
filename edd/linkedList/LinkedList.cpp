@@ -10,6 +10,8 @@ LinkedList::LinkedList(){}
 void LinkedList::agregar(Caja caja) {
     Node nuevo = new Nodo<Caja>;
     nuevo->dato = caja;
+    nuevo->next = NULL;
+    nuevo->prev = NULL;
 
     if(this->inicio == NULL) {
         this->inicio = nuevo;

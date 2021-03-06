@@ -10,6 +10,8 @@ CircularList::CircularList(){}
 void CircularList::agregar(Cliente cliente) {
     Node nuevo = new Nodo<Cliente>;
     nuevo->dato = cliente;
+    nuevo->next = NULL;
+    nuevo->prev = NULL;
 
     if (this->primero == NULL) {
         nuevo->next = nuevo;
@@ -108,6 +110,7 @@ string CircularList::getNodos() {
         if (actual->prev == this->ultimo) {
             nodos = nodos +"\t\tclientC"+id+" -> clientC"+idNext+";\n";
         } else if (actual->next == this->primero) {
+            nodos = nodos + "\t\tclientC"+id+" -> clientC"+idPrev+";\n";
             nodos = nodos +"\t\tclientC"+id+" -> clientC"+idNext+"[constraint=false, style=solid, dir=both];\n";
         } else {
             nodos = nodos +"\t\tclientC"+id+" -> clientC"+idNext+";\n";

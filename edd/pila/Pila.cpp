@@ -13,6 +13,7 @@ void Pila::push(int id){
     
     Node nuevo = new Nodo<int>;
     nuevo->dato = id;
+    nuevo->next = NULL;
 
     nuevo->next = this->pila;
     this->pila = nuevo;
